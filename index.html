@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Learning - Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 25px;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      background-color: #007bff;
+      border-radius: 5px;
+    }
+
+    .buttons a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Dark mode styles */
+    .dark {
+      background: #121212;
+      color: white;
+    }
+
+    .dark a {
+      background-color: #333;
+      color: white;
+    }
+
+    .dark a:hover {
+      background-color: #555;
+    }
+
+    .dark-toggle {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Welcome to Smart Online Learning</h1>
+  <p>Learn at your pace. Track your progress. Earn certificates.</p>
+
+  <div class="buttons">
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+  <!-- 🌙 Dark Mode Toggle -->
+  <div class="dark-toggle">
+    <label>
+      <input type="checkbox" id="darkToggle"> 🌙 Dark Mode
+    </label>
+  </div>
+</div>
+
+<!-- ✅ JavaScript for Dark Mode -->
+<script>
+  const toggle = document.getElementById("darkToggle");
+
+  toggle.addEventListener("change", function () {
+    if (this.checked) {
+      document.body.classList.add("dark");
+      localStorage.setItem("darkMode", "on");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("darkMode", "off");
+    }
+  });
+
+  // Load mode on page load
+  window.onload = () => {
+    if (localStorage.getItem("darkMode") === "on") {
+      document.body.classList.add("dark");
+      toggle.checked = true;
+    }
+  };
+</script>
+
+</body>
+</html>
