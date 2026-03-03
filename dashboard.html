@@ -1,0 +1,40 @@
+<h2>Available Courses</h2>
+<div class="course" id="courses">
+  <!-- Courses loaded from JS -->
+</div>
+
+<script>
+const courses = [
+  {
+    id: 1,
+    title: "HTML Basics",
+    video: "https://www.youtube.com/embed/kUMe1FH4CHE"
+  },
+  {
+    id: 2,
+    title: "CSS Crash Course",
+    video: "https://www.youtube.com/embed/yfoY53QXEnI"
+  },
+  {
+    id: 3,
+    title: "JavaScript for Beginners",
+    video: "https://www.youtube.com/embed/W6NZfCO5SIk"
+  }
+];
+
+const courseContainer = document.getElementById("courses");
+
+courses.forEach(course => {
+  courseContainer.innerHTML += `
+    <div class="card">
+      <h3>${course.title}</h3>
+      <iframe width="300" height="200" src="${course.video}" frameborder="0" allowfullscreen></iframe>
+      <button onclick="enroll(${course.id})">Enroll</button>
+    </div>`;
+});
+
+function enroll(id) {
+  alert("Course Enrolled: " + id);
+  // Store user-course data to Firestore (extension step)
+}
+</script>

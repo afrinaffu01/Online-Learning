@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      padding: 30px;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .question-block {
+      margin-bottom: 25px;
+    }
+
+    .question-block h4 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .question-block label {
+      display: block;
+      padding-left: 15px;
+      margin: 5px 0;
+    }
+
+    button {
+      background: #4285F4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      font-size: 16px;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="quiz-form">
+    <h2>HTML/CSS/JS Quiz</h2>
+
+    <div class="question-block">
+      <h4>1. What does HTML stand for?</h4>
+      <label><input type="radio" name="q1" value="0"> Hyper Text Markup Language</label>
+      <label><input type="radio" name="q1" value="1"> Home Tool Markup</label>
+      <label><input type="radio" name="q1" value="2"> Hyperlinks Text</label>
+      <label><input type="radio" name="q1" value="3"> None</label>
+    </div>
+
+    <div class="question-block">
+      <h4>2. What is CSS used for?</h4>
+      <label><input type="radio" name="q2" value="0"> Structure</label>
+      <label><input type="radio" name="q2" value="1"> Styling</label>
+      <label><input type="radio" name="q2" value="2"> Scripting</label>
+      <label><input type="radio" name="q2" value="3"> Database</label>
+    </div>
+
+    <div class="question-block">
+      <h4>3. Which tag is used for inserting an image?</h4>
+      <label><input type="radio" name="q3" value="0"> &lt;image&gt;</label>
+      <label><input type="radio" name="q3" value="1"> &lt;img&gt;</label>
+      <label><input type="radio" name="q3" value="2"> &lt;src&gt;</label>
+      <label><input type="radio" name="q3" value="3"> &lt;pic&gt;</label>
+    </div>
+
+    <div class="question-block">
+      <h4>4. JavaScript is a ___ language.</h4>
+      <label><input type="radio" name="q4" value="0"> Styling</label>
+      <label><input type="radio" name="q4" value="1"> Markup</label>
+      <label><input type="radio" name="q4" value="2"> Programming</label>
+      <label><input type="radio" name="q4" value="3"> Database</label>
+    </div>
+
+    <div class="question-block">
+      <h4>5. Which symbol is used for ID in CSS?</h4>
+      <label><input type="radio" name="q5" value="0"> .</label>
+      <label><input type="radio" name="q5" value="1"> #</label>
+      <label><input type="radio" name="q5" value="2"> *</label>
+      <label><input type="radio" name="q5" value="3"> !</label>
+    </div>
+
+    <div class="question-block">
+      <h4>6. Which HTML tag is used for links?</h4>
+      <label><input type="radio" name="q6" value="0"> &lt;a&gt;</label>
+      <label><input type="radio" name="q6" value="1"> &lt;link&gt;</label>
+      <label><input type="radio" name="q6" value="2"> &lt;href&gt;</label>
+      <label><input type="radio" name="q6" value="3"> &lt;url&gt;</label>
+    </div>
+
+    <div class="question-block">
+      <h4>7. Which property controls text size in CSS?</h4>
+      <label><input type="radio" name="q7" value="0"> font-size</label>
+      <label><input type="radio" name="q7" value="1"> text-style</label>
+      <label><input type="radio" name="q7" value="2"> size</label>
+      <label><input type="radio" name="q7" value="3"> font-type</label>
+    </div>
+
+    <div class="question-block">
+      <h4>8. How do you write a comment in JavaScript?</h4>
+      <label><input type="radio" name="q8" value="0"> &lt;!-- comment --&gt;</label>
+      <label><input type="radio" name="q8" value="1"> // comment</label>
+      <label><input type="radio" name="q8" value="2"> # comment</label>
+      <label><input type="radio" name="q8" value="3"> ** comment **</label>
+    </div>
+
+    <div class="question-block">
+      <h4>9. Which company developed JavaScript?</h4>
+      <label><input type="radio" name="q9" value="0"> Google</label>
+      <label><input type="radio" name="q9" value="1"> Microsoft</label>
+      <label><input type="radio" name="q9" value="2"> Netscape</label>
+      <label><input type="radio" name="q9" value="3"> Oracle</label>
+    </div>
+
+    <div class="question-block">
+      <h4>10. How do you define a function in JavaScript?</h4>
+      <label><input type="radio" name="q10" value="0"> function = myFunc()</label>
+      <label><input type="radio" name="q10" value="1"> def myFunc()</label>
+      <label><input type="radio" name="q10" value="2"> function myFunc()</label>
+      <label><input type="radio" name="q10" value="3"> create myFunc()</label>
+    </div>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+    <div class="result" id="result"></div>
+  </form>
+
+  <script>
+    const correctAnswers = [0,1,1,2,1,0,0,1,2,2];
+
+    function submitForm() {
+      let score = 0;
+      for(let i = 1; i <= 10; i++) {
+        const options = document.getElementsByName('q' + i);
+        for (let opt of options) {
+          if (opt.checked && parseInt(opt.value) === correctAnswers[i - 1]) {
+            score++;
+          }
+        }
+      }
+      document.getElementById("result").innerText = "Your Score: " + score + " / 10";
+    }
+  </script>
+
+</body>
+</html>

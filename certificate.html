@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate</title>
+  <style>
+    body {
+      font-family: 'Arial';
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    #certificate {
+      width: 800px;
+      margin: auto;
+      padding: 40px;
+      border: 10px solid #ccc;
+      background: white;
+    }
+    #certificate h1 {
+      font-size: 32px;
+      margin-bottom: 0;
+    }
+    #certificate h2 {
+      font-size: 24px;
+      color: #555555;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div id="certificate">
+  <h1>Certificate of Completion</h1>
+  <h2 id="studentName">[Afrin R]</h2>
+  <p>has successfully completed the course</p>
+  <h2 id="courseTitle">[JavaScript For Beginners]</h2>
+  <p>Presented by: <strong>Online Learning Platform</strong></p>
+</div>
+
+<button onclick="downloadCertificate()">Download Certificate</button>
+
+<script>
+  // Dummy values (you can fetch from Firebase later)
+  document.getElementById("studentName").innerText = "Afrin R";
+  document.getElementById("courseTitle").innerText = "JavaScript for Beginners";
+
+  function downloadCertificate() {
+    html2canvas(document.getElementById("certificate")).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "certificate.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+</script>
+
+<!-- HTML2Canvas CDN for certificate image export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
